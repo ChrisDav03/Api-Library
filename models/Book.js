@@ -2,10 +2,10 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const bookSchema = new Schema({
-  Title: String, 
-  Author: String, 
-  Date: String,
-  Genre: String,
+  title: { type: String, required: true }, 
+  author: { type: String, required: true }, 
+  date: { type: Date },
+  genre: { type: String, required: true },
 })
 
 const Book = mongoose.model('Book', bookSchema)

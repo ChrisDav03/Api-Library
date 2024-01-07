@@ -1,27 +1,30 @@
-var router = require('express').Router()
+const router = require('express').Router()
+const { check } = require('express-validator')
+const bookController = require('../controllers/bookController')
+const {validateFields} = require('../middlewares/validateFields')
 
-router.get('/', (req,res)=>{
-    res.json({ message: 'Connected to API: Books'})
-})
-router.get('/search', (req, res)=> {
-    res.json({ message: 'You are going to search a book' })
-  })
 
-  router.get('/:id', (req,res)=>{
-    res.json({message: 'Youre getting a book by id ' + req.params.id})
-  })
+router.get('/', bookController.index)
+ 
+router.get('/search', bookController.bookSearch)
 
-  router.post('/', (req,res)=>{
-    res.json({message: 'Youre about to add a book'})
-  })
+router.get('/:id', bookController.bookSearchById)
 
-  router.put('/', (req,res)=>{
-    res.json({message: 'Youre about to update a book'})
-  })
 
-  router.delete('/',(req,res)=>{
-    res.json({message: 'Youre about to delete a book'})
-  })
+router.post('/',
+  [
+    check('title', 'Title is required').not().isEmpty(),
+    check('author', 'Author is required').not().isEmpty(),
+    check('date', 'Date is required').not().isEmpty(),
+    check('genre', 'Genre is required').not().isEmpty(), 
+    validateFields
+  ],
+    bookController.bookAdd
+)
+
+router.put('/', bookController.bookUpdateAdd)
+
+  router.delete('/', bookController.bookDelete)
 
 
   module.exports = router

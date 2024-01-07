@@ -5,12 +5,9 @@ const MONGO_URL = process.env.MONGO_URL
 
 mongoose.connect(MONGO_URL)
   .then(() => {
-    console.log('Conexión a MongoDB Atlas establecida con éxito');
+    console.log('Conection to MongoDB Atlas stablished succesfully');
   })
   .catch(error => {
-    console.error('Error al conectar a MongoDB Atlas:', error.message);
+    console.error('Error connecting to MongoDB Atlas:', error.message);
   });
 
-mongoose.connection.on('connected', ()=>{
-    console.log('connected to database:')
-})

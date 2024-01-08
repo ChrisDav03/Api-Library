@@ -1,10 +1,10 @@
-const express = require("express");
-const app = express();
-const router  = require('./routes');
-const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
+const express = require('express')
+const app = express()
+const router = require('./routes')
+const bodyParser = require('body-parser')
+const dotenv = require('dotenv')
 require('./db')
-dotenv.config();
+dotenv.config()
 
 const port = process.env.PORT || 5000
 app.use(bodyParser.urlencoded({ extended: true }))

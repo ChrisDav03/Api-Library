@@ -1,11 +1,15 @@
 {
   "name": "Api-Library",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "repository": "https://github.com/ChrisDav03/Api-Library.git",
   "author": "Christian <christianbur1248@gmail.com>",
   "license": "MIT",
-  "dependencies": {
+  "scripts": {
+    "dev": "nodemon app.js",
+    "lint": "eslint ."
+  },
+  "dependencies":{
     "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -13,5 +17,12 @@
     "express-validator": "^7.0.1",
     "mongoose": "^8.0.3",
     "nodemon": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0"
   }
 }

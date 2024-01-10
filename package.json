@@ -6,6 +6,7 @@
   "author": "Christian <christianbur1248@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "start": "node app.js",
     "dev": "nodemon app.js",
     "lint": "eslint ."
   },

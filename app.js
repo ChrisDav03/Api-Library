@@ -3,12 +3,17 @@ const app = express()
 const router = require('./routes')
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
+const cors = require('cors')
 require('./db')
 dotenv.config()
 
 const port = process.env.PORT || 5000
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(cors({
+  credentials: true,
+  origin: 'http://localhost:5173'
+}))
 
 // Route will be localhost:4000
 // Prefix will be /api

@@ -19,7 +19,14 @@ router.post('/',
   bookController.bookAdd
 )
 
-router.put('/', bookController.bookUpdateAdd)
+router.put('/', [
+  check('id', 'id is required').not().isEmpty(),
+  check('title', 'Title is required').not().isEmpty(),
+  check('author', 'Author is required').not().isEmpty(),
+  check('date', 'Date is required').not().isEmpty(),
+  check('genre', 'Genre is required').not().isEmpty(),
+  validateFields
+], bookController.bookUpdateAdd)
 
 router.delete('/', bookController.bookDelete)
 

@@ -20,5 +20,7 @@ app.use(cors({
 app.use('/api', router)
 
 // Start server
-app.listen(port)
+const server = app.listen(port)
 console.log('listening in port ' + port)
+
+module.exports = server

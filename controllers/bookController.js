@@ -18,17 +18,16 @@ exports.bookSearchById = asyncHandler(async (req, res, next) => {
 
 exports.bookAdd = asyncHandler(async (req, res, next) => {
   const addBook = await new Book(req.body).save()
-  res.send({ message: 'Book saved succesfully', book: addBook })
+  res.send({ message: 'Book saved successfully', book: addBook })
 })
 
 exports.bookUpdateAdd = asyncHandler(async (req, res, next) => {
   const updateBook = await Book.findOneAndUpdate({ _id: req.body.id }, req.body, { new: true })
-  console.log(req.body)
-  res.send({ message: 'Book modified succesfully', book: updateBook })
+  res.send({ message: 'Book modified successfully', book: updateBook })
 })
 
 exports.bookDelete = asyncHandler(async (req, res, next) => {
-  const deleteBook = await Book.deleteOne({ _id: req.body.id })
-  console.log(req.body)
-  res.send({ message: 'Book deleted succesfully', Book: deleteBook })
+  const book = await Book.findById(req.body.id)
+  res.send({ message: 'Book deleted successfully', Book: book })
+  await Book.deleteOne({ _id: req.body.id })
 })

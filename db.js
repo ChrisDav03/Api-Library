@@ -9,4 +9,5 @@ mongoose.connect(MONGO_URL)
   })
   .catch(error => {
     console.error('Error connecting to MongoDB Atlas:', error.message)
+    process.exit(1)
   })

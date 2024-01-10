@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(cors({
   credentials: true,
-  origin: '*'
+  origin: 'https://chrisdav03.github.io/'
 }))
 
 // Route will be localhost:4000

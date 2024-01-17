@@ -6,7 +6,7 @@ const { validateFields } = require('../middlewares/validateFields')
 router.get('/', bookController.index)
 router.get('/search', bookController.bookSearch)
 
-router.get('/:id', bookController.bookSearchById)
+// router.get('/:id', bookController.bookSearchById)
 
 router.post('/',
   [
@@ -29,5 +29,7 @@ router.put('/', [
 ], bookController.bookUpdateAdd)
 
 router.delete('/', bookController.bookDelete)
+
+router.get('/filter', bookController.bookFilter)
 
 module.exports = router

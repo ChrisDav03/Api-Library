@@ -31,3 +31,19 @@ exports.bookDelete = asyncHandler(async (req, res, next) => {
   res.send({ message: 'Book deleted successfully', Book: book })
   await Book.deleteOne({ _id: req.body.id })
 })
+
+exports.bookFilter = asyncHandler(async (req, res, next) => {
+  const filterParams = {}
+  if (req.body.genre) {
+    filterParams.genre = req.body.genre
+  }
+  if (req.body.date) {
+    filterParams.date = req.body.date
+  }
+  const filterBook = await Book.find(filterParams)
+  if (filterBook.length === 0) {
+    res.send({ message: 'No books found' })
+  } else {
+    res.send({ message: 'Book filtered successfully', books: filterBook })
+  }
+})

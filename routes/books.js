@@ -30,6 +30,6 @@ router.put('/', [
 
 router.delete('/', bookController.bookDelete)
 
-router.get('/filter', bookController.bookFilter)
+router.post('/filter', bookController.bookFilter)
 
 module.exports = router
